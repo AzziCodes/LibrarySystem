@@ -1,0 +1,22 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.kilometers.library'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // JUnit for testing
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
+
+    // BCrypt for password hashing
+    implementation 'org.mindrot:jbcrypt:0.4'
+}
+
+test {
+    useJUnitPlatform()
+}
