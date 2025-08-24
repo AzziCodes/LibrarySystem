@@ -10,13 +10,15 @@ public class User {
     private final String lastName;
     private UserRole role;
     private String email;
+    private double outstandingFees;
 
     public User(String username, String passwordOrHash, boolean isHashed, String firstName, String lastName) {
         this.username = username;
         this.passwordHash = isHashed ? passwordOrHash : BCrypt.hashpw(passwordOrHash, BCrypt.gensalt());
         this.firstName = firstName;
         this.lastName = lastName;
-        this.role = UserRole.MEMBER;
+        role = UserRole.MEMBER;
+        outstandingFees = 0.0;
     }
 
     // convenience constructor
@@ -29,6 +31,7 @@ public class User {
     public String getLastName() { return lastName; }
     public UserRole getRole() { return role; }
     public String getEmail() { return email; }
+    public double getOutstandingFees() { return outstandingFees; }
 
     public void setEmail(String email) { this.email = email; }
     public void setPassword(String password) {
@@ -40,6 +43,8 @@ public class User {
     public boolean checkPassword(String password) {
         return BCrypt.checkpw(password, passwordHash);
     }
+
+    public void addFee(double fee) { outstandingFees += fee; }
 
     @Override
     public boolean equals(Object o) {
