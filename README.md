@@ -1,4 +1,4 @@
-# My Project
+# Library Management System
 
 ⚠️ This project is currently a Work in Progress.  
 It may not have full functionality yet and is under active development.
